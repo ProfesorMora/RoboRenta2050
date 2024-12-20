@@ -18,6 +18,6 @@ public class Menu : MonoBehaviour
     public void LoadIntro()
     {
         Debug.Log("entra");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("formulario");
     }
 }
