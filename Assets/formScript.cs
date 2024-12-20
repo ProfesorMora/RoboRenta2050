@@ -138,6 +138,6 @@ public class formScript : MonoBehaviour
     void changeScene()
     {
         Debug.Log("Will change scene");
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Room");
     }
 }
