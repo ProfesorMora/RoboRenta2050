@@ -25,7 +25,7 @@ public class ScriptIntro : MonoBehaviour
         {
             if (alphaValue < 0)
             {
-                SceneManager.LoadScene("formulario");
+                SceneManager.LoadScene("Formulario");
             }   
             if (fadeTime > 0)
             {
