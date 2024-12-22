@@ -65,19 +65,19 @@ public class DialogManager : MonoBehaviour
             {
                 switch(text.Substring(0,1)){
                     case "ç":
-                        arrendabot.overrideSprite = arrendabotFeliz;
+                        if(arrendabot != null) arrendabot.overrideSprite = arrendabotFeliz;
                         text = text.Remove(0,1);
                         break;
                     case "]":
-                        arrendabot.overrideSprite = arrendabotSorprendido;
+                        if(arrendabot != null) arrendabot.overrideSprite = arrendabotSorprendido;
                         text = text.Remove(0,1);
                         break;
                     case "¬":
-                        arrendabot.overrideSprite = arrendabotEnojado;
+                        if(arrendabot != null) arrendabot.overrideSprite = arrendabotEnojado;
                         text = text.Remove(0,1);
                         break;
                     default:
-                        arrendabot.overrideSprite = arrendabotIdle;
+                        if(arrendabot != null) arrendabot.overrideSprite = arrendabotIdle;
                         break;
                 }
             }
