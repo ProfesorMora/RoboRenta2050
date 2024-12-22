@@ -16,6 +16,8 @@ public class DialogManager : MonoBehaviour
     public float textSpeed;
     public TMP_FontAsset fontProta;
     public TMP_FontAsset fontRobot;
+    public Color colorProta;
+    public Color colorRobot;
     public List<string> filePaths;
     public bool writing = false, finishedWriting = false, deactivated = false;
     public Image textBackground;
@@ -57,6 +59,7 @@ public class DialogManager : MonoBehaviour
         if((text != "") && (text.Substring(0,1) == "~"))
         {
             dialogText.font = fontProta;
+            dialogText.color = colorProta;
             Debug.Log("Linea de prota");
             text = text.Remove(0,1);
             if(textBackground != null) textBackground.overrideSprite = textBackProta;
@@ -82,6 +85,7 @@ public class DialogManager : MonoBehaviour
                 }
             }
             dialogText.font = fontRobot;
+            dialogText.color = colorRobot;
             Debug.Log("Linea normal");
             if(textBackground != null) textBackground.overrideSprite = textBackRobot;
         }
