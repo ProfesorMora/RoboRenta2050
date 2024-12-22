@@ -36,7 +36,7 @@ Ratón.
 
 - **Art** by [haiqu](https://haiqu.itch.io/)
 
-- **Music** by aluengocm
+- **Music** by [aluengocm](https://www.instagram.com/aluengocm)
 
 - **Programmed** by [fmoran-m](https://fmoran-m.itch.io), [ProfesorMora](https://profesormora.itch.io/)
 

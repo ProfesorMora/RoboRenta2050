@@ -16,11 +16,18 @@ public class DialogManager : MonoBehaviour
     public float textSpeed;
     public TMP_FontAsset fontProta;
     public TMP_FontAsset fontRobot;
+    public Color colorProta;
+    public Color colorRobot;
     public List<string> filePaths;
     public bool writing = false, finishedWriting = false, deactivated = false;
     public Image textBackground;
+    public Image arrendabot;
     public Sprite textBackProta;
     public Sprite textBackRobot;
+    public Sprite arrendabotIdle;
+    public Sprite arrendabotFeliz;
+    public Sprite arrendabotEnojado;
+    public Sprite arrendabotSorprendido;
 
     private void Start()
     {
@@ -28,6 +35,8 @@ public class DialogManager : MonoBehaviour
         currentEntryNumber = 1;
         writing = false;
         finishedWriting = false;
+        if(colorRobot == null) colorRobot = new Color(255,255,255,255);
+        if(colorProta == null) colorProta = new Color(213,135,198,255);
     }
 
     
@@ -52,13 +61,35 @@ public class DialogManager : MonoBehaviour
         if((text != "") && (text.Substring(0,1) == "~"))
         {
             dialogText.font = fontProta;
+            dialogText.color = colorProta;
             Debug.Log("Linea de prota");
             text = text.Remove(0,1);
-           // if(textBackground != null) textBackground.overrideSprite = textBackProta;
+            if(textBackground != null) textBackground.overrideSprite = textBackProta;
         }else{
+            if(text != "")
+            {
+                switch(text.Substring(0,1)){
+                    case "ç":
+                        if(arrendabot != null) arrendabot.overrideSprite = arrendabotFeliz;
+                        text = text.Remove(0,1);
+                        break;
+                    case "]":
+                        if(arrendabot != null) arrendabot.overrideSprite = arrendabotSorprendido;
+                        text = text.Remove(0,1);
+                        break;
+                    case "¬":
+                        if(arrendabot != null) arrendabot.overrideSprite = arrendabotEnojado;
+                        text = text.Remove(0,1);
+                        break;
+                    default:
+                        if(arrendabot != null) arrendabot.overrideSprite = arrendabotIdle;
+                        break;
+                }
+            }
             dialogText.font = fontRobot;
+            dialogText.color = colorRobot;
             Debug.Log("Linea normal");
-            //if(textBackground != null) textBackground.overrideSprite = textBackRobot;
+            if(textBackground != null) textBackground.overrideSprite = textBackRobot;
         }
         IEnumerator writeToDialogRoutine  = writeToDialog(text);
         

@@ -2169,6 +2169,8 @@ MonoBehaviour:
   textSpeed: 0.03
   fontProta: {fileID: 11400000, guid: a3048a1add12d984c9794e166ae8a859, type: 2}
   fontRobot: {fileID: 11400000, guid: fd86b9d49de48c54f95f9d30183ba71a, type: 2}
+  colorProta: {r: 0.8352941, g: 0.5294118, b: 0.7764706, a: 1}
+  colorRobot: {r: 1, g: 1, b: 1, a: 1}
   filePaths:
   - Prev
   - Window
@@ -2179,8 +2181,13 @@ MonoBehaviour:
   finishedWriting: 1
   deactivated: 0
   textBackground: {fileID: 0}
+  arrendabot: {fileID: 0}
   textBackProta: {fileID: 0}
   textBackRobot: {fileID: 0}
+  arrendabotIdle: {fileID: 0}
+  arrendabotFeliz: {fileID: 0}
+  arrendabotEnojado: {fileID: 0}
+  arrendabotSorprendido: {fileID: 0}
 --- !u!4 &967917613
 Transform:
   m_ObjectHideFlags: 0
