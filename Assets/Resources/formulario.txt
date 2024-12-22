@@ -4,5 +4,9 @@ Os recuerdo que el precio de la vivienda es de 4000$.
 ~(¡Mierda! Me alcanza exacto.)
 çSegún como vaya la visita, el precio puede negociarse.
 ~(Debo ser cuidadoso para que esta chatarra no me suba el precio.)
+¬¡¿Cómo dices?! ¡Yo no soy ninguna chatarra!
+~(!)
+Bueno, por el momento ignoraré tu comentario. Continuemos.
+~(Por los pelos... Voy a tener que ser más cuidadoso de lo que pensaba.)
 ]Ahora os pido rellenar el formulario de inscripción de…
 ç“Posible candidatura imparcial e indefinida con su data personal”
