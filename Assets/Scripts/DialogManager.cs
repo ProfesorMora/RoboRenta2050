@@ -54,11 +54,11 @@ public class DialogManager : MonoBehaviour
             dialogText.font = fontProta;
             Debug.Log("Linea de prota");
             text = text.Remove(0,1);
-           // if(textBackground != null) textBackground.overrideSprite = textBackProta;
+            if(textBackground != null) textBackground.overrideSprite = textBackProta;
         }else{
             dialogText.font = fontRobot;
             Debug.Log("Linea normal");
-            //if(textBackground != null) textBackground.overrideSprite = textBackRobot;
+            if(textBackground != null) textBackground.overrideSprite = textBackRobot;
         }
         IEnumerator writeToDialogRoutine  = writeToDialog(text);
         
