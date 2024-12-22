@@ -35,6 +35,8 @@ public class DialogManager : MonoBehaviour
         currentEntryNumber = 1;
         writing = false;
         finishedWriting = false;
+        if(colorRobot == null) colorRobot = new Color(255,255,255,255);
+        if(colorProta == null) colorProta = new Color(213,135,198,255);
     }
 
     
