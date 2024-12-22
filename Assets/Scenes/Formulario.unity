@@ -1799,7 +1799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8626979921367881834, guid: dbf367c7149aa8d4d9a8954179a4e219, type: 3}
+  m_Sprite: {fileID: 5852339953546808084, guid: cadbc14240437f2418a22db1bea9d37b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3137,8 +3137,13 @@ MonoBehaviour:
   finishedWriting: 0
   deactivated: 0
   textBackground: {fileID: 426109664}
+  arrendabot: {fileID: 728622936}
   textBackProta: {fileID: -7918704144060682262, guid: bd17dec595ae3b84996d0965baa21c77, type: 3}
   textBackRobot: {fileID: 649884603770791953, guid: ec94ab644a53ea149a6443e720f7fb91, type: 3}
+  arrendabotIdle: {fileID: 5852339953546808084, guid: cadbc14240437f2418a22db1bea9d37b, type: 3}
+  arrendabotFeliz: {fileID: -8626979921367881834, guid: dbf367c7149aa8d4d9a8954179a4e219, type: 3}
+  arrendabotEnojado: {fileID: 2696886709592693092, guid: 5734ec02f9f96ab489a71bc1af2084ef, type: 3}
+  arrendabotSorprendido: {fileID: -1990239544057201586, guid: 71b90a4211214fc41a1552985194d13a, type: 3}
 --- !u!4 &1575188360
 Transform:
   m_ObjectHideFlags: 0

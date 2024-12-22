@@ -19,8 +19,13 @@ public class DialogManager : MonoBehaviour
     public List<string> filePaths;
     public bool writing = false, finishedWriting = false, deactivated = false;
     public Image textBackground;
+    public Image arrendabot;
     public Sprite textBackProta;
     public Sprite textBackRobot;
+    public Sprite arrendabotIdle;
+    public Sprite arrendabotFeliz;
+    public Sprite arrendabotEnojado;
+    public Sprite arrendabotSorprendido;
 
     private void Start()
     {
@@ -56,6 +61,26 @@ public class DialogManager : MonoBehaviour
             text = text.Remove(0,1);
             if(textBackground != null) textBackground.overrideSprite = textBackProta;
         }else{
+            if(text != "")
+            {
+                switch(text.Substring(0,1)){
+                    case "ç":
+                        arrendabot.overrideSprite = arrendabotFeliz;
+                        text = text.Remove(0,1);
+                        break;
+                    case "]":
+                        arrendabot.overrideSprite = arrendabotSorprendido;
+                        text = text.Remove(0,1);
+                        break;
+                    case "¬":
+                        arrendabot.overrideSprite = arrendabotEnojado;
+                        text = text.Remove(0,1);
+                        break;
+                    default:
+                        arrendabot.overrideSprite = arrendabotIdle;
+                        break;
+                }
+            }
             dialogText.font = fontRobot;
             Debug.Log("Linea normal");
             if(textBackground != null) textBackground.overrideSprite = textBackRobot;
