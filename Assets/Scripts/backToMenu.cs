@@ -17,6 +17,7 @@ public class backToMenu : MonoBehaviour
 
     public void goBackToMenu()
     {
+        GlobalVariables.price = 4000;
         SceneManager.LoadScene(0);
     }
 }
