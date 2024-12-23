@@ -7,4 +7,12 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Intro Timeline");
     }
+
+    public void EndGame()
+    {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
+        Application.Quit();
+    }
 }
