@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class formScript : MonoBehaviour
 {
+    public GameObject textBox;
+    public GameObject robot;
     public GameObject formPanel;
     public GameObject submitButton;
     public DialogManager dialogManager;
@@ -14,8 +17,10 @@ public class formScript : MonoBehaviour
     public ToggleGroup toggleGroupPet; // Esto no lo pilla el formScript
     public ToggleGroup toggleGroupWork; //
     public Canvas priceCanvas;
+    public CanvasGroup canvasGroup;
     public TextMeshProUGUI priceText;
     bool formSubmitted, finishedTalking;
+    public float blackFadeDuration, appearFadeDuration, beginScale, endingScale;
 
     List<bool> listOfToggleBools;
     List<int> listOfToggleValues;
@@ -26,8 +31,16 @@ public class formScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        canvasGroup.alpha = 0;
+        StartCoroutine(fadeCanvasGroup(0, 1, blackFadeDuration));
+        
+        setImageAlphaTo(robot.GetComponent<Image>(), 0);
+        setImageScaleTo(robot.GetComponent<Image>(), beginScale);
+        setGraphicElementsAlphaTo(0);
+        
         formPanel.SetActive(false);
         submitButton.SetActive(false);
+        
         priceCanvas.enabled = false;
         listOfToggleBools = new List<bool>{false, false, false};
         listOfToggleValues = new List<int>{0,0,0};
@@ -139,5 +152,69 @@ public class formScript : MonoBehaviour
     {
         Debug.Log("Will change scene");
         SceneManager.LoadScene("Room");
+    }
+
+
+    private IEnumerator fadeCanvasGroup(float begin, float end, float duration)
+    {
+        float elapsedTime = 0.0f;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            canvasGroup.alpha = begin + (elapsedTime / duration)*(end - begin);
+            yield return null;
+        }
+        canvasGroup.alpha = end;
+        StartCoroutine(fadeGraphicElements(begin, end, appearFadeDuration));
+    }
+
+
+    private IEnumerator fadeGraphicElements(float begin, float end, float duration)
+    {
+        float elapsedTime = 0.0f;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            setImageAlphaTo(robot.GetComponent<Image>(), begin + (elapsedTime / duration)*(end - begin));
+            setImageScaleTo(robot.GetComponent<Image>(), 9 + (elapsedTime / duration)*(10 - 9));
+            yield return null;
+        }
+        setImageAlphaTo(robot.GetComponent<Image>(), end);
+        elapsedTime = 0.0f;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            setGraphicElementsAlphaTo(begin + (elapsedTime / duration)*(end - begin));
+            yield return null;
+        }
+        setGraphicElementsAlphaTo(end);
+        dialogManager.nextEntry();
+    }
+
+
+    void setImageAlphaTo(Image image, float alph)
+    {
+        Color color = image.color;
+        color.a = alph;
+        image.color = color;
+    }
+
+
+    void setGraphicElementsAlphaTo(float alph)
+    {
+        Image[] images = textBox.GetComponentsInChildren<Image>();
+        // List<Image> imageList = new List<Image>(images);
+        // imageList.Add(robot.GetComponent<Image>());
+        foreach (Image i in images)
+        {
+            setImageAlphaTo(i,alph);
+        }
+    }
+
+
+    void setImageScaleTo(Image image, float scale)
+    {
+        Vector3 scaleVector = new Vector3(scale, scale, scale);
+        image.transform.localScale = scaleVector;
     }
 }

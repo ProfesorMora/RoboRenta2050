@@ -38,14 +38,10 @@ public class MenuManager : MonoBehaviour
     private IEnumerator fadeCanvasGroup(float begin, float end, float duration)
     {
         float elapsedTime = 0.0f;
-        Debug.Log("Duration: " + duration);
         while (elapsedTime < duration)
         {
-            Debug.Log("elapsedTime: " + elapsedTime);
             elapsedTime += Time.deltaTime;
-            Debug.Log("calc alpha:" + begin + (elapsedTime / duration)*(end - begin));
             canvasGroup.alpha = begin + (elapsedTime / duration)*(end - begin);
-            Debug.Log("current alpha:" + canvasGroup.alpha);
             yield return null;
         }
         canvasGroup.alpha = end;

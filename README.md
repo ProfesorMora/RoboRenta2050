@@ -5,7 +5,15 @@ https://haiqu.itch.io/robo-renta-2050
 
 ![Robo Renta 2050](./Assets/Images/cover.png "Robo Renta 2050")
 
-Made with love by Grupo 5.
+Made with love by Grupo 5:
+
+- **Art** by [haiqu](https://haiqu.itch.io/)
+
+- **Music** by [aluengocm](https://www.instagram.com/aluengocm)
+
+- **Programmed** by [fmoran-m](https://fmoran-m.itch.io), [ProfesorMora](https://profesormora.itch.io/)
+
+- **Game Design and script** by Caetano Arancibia
 
 
 
@@ -30,14 +38,3 @@ Esta demo se puede jugar en apróximadamente 5-10 minutos.
 ### Controles
 
 Ratón.
-
-
-### Créditos
-
-- **Art** by [haiqu](https://haiqu.itch.io/)
-
-- **Music** by [aluengocm](https://www.instagram.com/aluengocm)
-
-- **Programmed** by [fmoran-m](https://fmoran-m.itch.io), [ProfesorMora](https://profesormora.itch.io/)
-
-- **Game Design and script** by Caetano Arancibia
