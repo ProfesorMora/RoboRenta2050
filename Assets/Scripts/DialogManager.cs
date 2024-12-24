@@ -111,15 +111,21 @@ public class DialogManager : MonoBehaviour
     IEnumerator writeToDialog(string input)
     {
         writing = true;
-        string txt = "";
-        Debug.Log("Input is " + input);
-        foreach(char c in input)
+        string txt;
+        int length = input.Length;
+        int i = 0;
+        while(i < length)
         {
-            txt += c;
-            if(c=='\\') txt += "n";
+            if(input[i] == '\\') i = i + 2;
+            txt = input.Substring(0, i);
+            txt += "<alpha=#00>";
+            txt += input.Substring(i, length-i);
+            Debug.Log("txt: " + txt);
             showDialog(txt);
             yield return new WaitForSeconds(textSpeed);
+            i++;
         }
+        showDialog(input);
         finishedWritingCurrentEntry();
         if(input == "")
         {
