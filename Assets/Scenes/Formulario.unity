@@ -3159,13 +3159,17 @@ MonoBehaviour:
   finishedWriting: 0
   deactivated: 0
   textBackground: {fileID: 426109664}
-  arrendabot: {fileID: 728622936}
+  robot: {fileID: 728622934}
+  textBox: {fileID: 102997632907956328}
   textBackProta: {fileID: -7918704144060682262, guid: bd17dec595ae3b84996d0965baa21c77, type: 3}
   textBackRobot: {fileID: 649884603770791953, guid: ec94ab644a53ea149a6443e720f7fb91, type: 3}
   arrendabotIdle: {fileID: 5852339953546808084, guid: cadbc14240437f2418a22db1bea9d37b, type: 3}
   arrendabotFeliz: {fileID: -8626979921367881834, guid: dbf367c7149aa8d4d9a8954179a4e219, type: 3}
   arrendabotEnojado: {fileID: 2696886709592693092, guid: 5734ec02f9f96ab489a71bc1af2084ef, type: 3}
   arrendabotSorprendido: {fileID: -1990239544057201586, guid: 71b90a4211214fc41a1552985194d13a, type: 3}
+  vibrationDuration: 0.25
+  vibrationSpeed: 0.01
+  vibrationMagnitude: 1
 --- !u!4 &1575188360
 Transform:
   m_ObjectHideFlags: 0
@@ -5373,7 +5377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.95996094, y: -362.88998}
+  m_AnchoredPosition: {x: -0.95996094, y: -362.89}
   m_SizeDelta: {x: -9.72, y: -712.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7113896056263313354

@@ -21,7 +21,9 @@ public class DialogManager : MonoBehaviour
     public List<string> filePaths;
     public bool writing = false, finishedWriting = false, deactivated = false;
     public Image textBackground;
-    public Image arrendabot;
+    private Image arrendabot;
+    public GameObject robot;
+    public GameObject textBox;
     public Sprite textBackProta;
     public Sprite textBackRobot;
     public Sprite arrendabotIdle;
@@ -29,8 +31,11 @@ public class DialogManager : MonoBehaviour
     public Sprite arrendabotEnojado;
     public Sprite arrendabotSorprendido;
 
+    public float vibrationDuration, vibrationSpeed, vibrationMagnitude;
+
     private void Start()
     {
+        if(robot != null) arrendabot = robot.GetComponent<Image>();
         currentScene = 0;
         currentEntryNumber = 1;
         writing = false;
@@ -79,6 +84,8 @@ public class DialogManager : MonoBehaviour
                         break;
                     case "¬":
                         if(arrendabot != null) arrendabot.overrideSprite = arrendabotEnojado;
+                        if(robot != null) StartCoroutine(angryVibration(robot,vibrationDuration, vibrationSpeed, vibrationMagnitude));
+                        if(textBox != null) StartCoroutine(angryVibration(textBox,vibrationDuration, vibrationSpeed, vibrationMagnitude));
                         text = text.Remove(0,1);
                         break;
                     default:
@@ -168,5 +175,19 @@ public class DialogManager : MonoBehaviour
         backImage.SetActive(true);
         deactivated = false;
         currentEntryNumber = 1;
+    }
+
+    private IEnumerator angryVibration(GameObject target, float duration, float speed, float magnitude)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            float despX = Random.Range(-magnitude, magnitude);
+            float despY = Random.Range(-magnitude, magnitude);
+            target.transform.position = target.transform.position + new Vector3(despX, despY, 0);
+            yield return new WaitForSeconds(speed);
+            target.transform.position = target.transform.position - new Vector3(despX, despY, 0);
+            elapsedTime += Time.deltaTime;
+        }
     }
 }
