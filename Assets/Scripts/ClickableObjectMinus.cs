@@ -13,54 +13,51 @@ public class ClickableObjectMinus : MonoBehaviour
 
     public DialogManager dialogManager;
 
-    private bool isDestroyed = false; // Variable para simular destrucción
+    private bool isDestroyed = false;
 
     void Start()
     {
         Signal.SetActive(true);
         DisableText();
+        GlobalVariables.gActiveClick = false;
     }
 
     public void DisableText()
     {
-        if (isDestroyed) return; // Ignorar si el objeto está "destruido"
+        if (isDestroyed) return;
 
         text.SetActive(false);
         YesButton.SetActive(false);
         NoButton.SetActive(false);
         Signal.SetActive(true);
+        GlobalVariables.gActiveClick = true;
     }
 
     public void YesClick()
     {
-        if (isDestroyed) return; // Ignorar si el objeto está "destruido"
+        if (isDestroyed) return; 
 
-        // Simular destrucción con SetActive(false)
         Signal.SetActive(false);
         text.SetActive(false);
         YesButton.SetActive(false);
         NoButton.SetActive(false);
 
-        isDestroyed = true; // Marcar como "destruido"
+        isDestroyed = true;
 
         GlobalVariables.price -= 300;
     }
 
     public void EnableText()
     {
-        if (isDestroyed) return; // Ignorar si el objeto está "destruido"
+        if (isDestroyed) return; 
 
-        text.SetActive(true);
-        YesButton.SetActive(true);
-        NoButton.SetActive(true);
-        Signal.SetActive(false);
-    }
-
-    public void ResetObject()
-    {
-        // Método para "revivir" el objeto si es necesario
-        isDestroyed = false;
-        Signal.SetActive(true);
-        DisableText();
+        if (GlobalVariables.gActiveClick == true)
+        {
+            text.SetActive(true);
+            YesButton.SetActive(true);
+            NoButton.SetActive(true);
+            Signal.SetActive(false);
+            GlobalVariables.gActiveClick = false;
+        }
     }
 }

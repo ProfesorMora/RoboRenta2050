@@ -137,6 +137,7 @@ public class DialogManager : MonoBehaviour
         finishedWritingCurrentEntry();
         if(input == "")
         {
+            GlobalVariables.gActiveClick = true;
             deactivate();
         }
     }

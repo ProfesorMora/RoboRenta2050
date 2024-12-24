@@ -30,7 +30,7 @@ public class FileReader : MonoBehaviour
         endedCurrentFile = false;
         if (!file_path) 
         {
-            Debug.LogError("No localizamos la ruta");
+            //Debug.LogError("No localizamos la ruta");
             return "";
         }
         Debug.Log("Ended Current File: " + endedCurrentFile);
