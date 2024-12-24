@@ -109,7 +109,7 @@ public class DialogManager : MonoBehaviour
             writing = true;
         }else
         {
-            StopCoroutine(writeCoroutine);
+            if(writeCoroutine != null) StopCoroutine(writeCoroutine);
             showDialog(text);
             finishedWritingCurrentEntry();
         }
