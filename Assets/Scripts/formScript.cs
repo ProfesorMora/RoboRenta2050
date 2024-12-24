@@ -32,6 +32,8 @@ public class formScript : MonoBehaviour
     void Start()
     {
         canvasGroup.alpha = 0;
+        Button nextButton = textBox.GetComponentInChildren<Button>();
+        nextButton.interactable = false;
         StartCoroutine(fadeCanvasGroup(0, 1, blackFadeDuration));
         
         setImageAlphaTo(robot.GetComponent<Image>(), 0);
@@ -188,6 +190,8 @@ public class formScript : MonoBehaviour
             yield return null;
         }
         setGraphicElementsAlphaTo(end);
+        Button nextButton = textBox.GetComponentInChildren<Button>();
+        nextButton.interactable = true;
         dialogManager.nextEntry();
     }
 

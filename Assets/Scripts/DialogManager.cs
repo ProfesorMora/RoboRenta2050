@@ -32,6 +32,7 @@ public class DialogManager : MonoBehaviour
     public Sprite arrendabotSorprendido;
 
     public float vibrationDuration, vibrationSpeed, vibrationMagnitude;
+    private Coroutine writeCoroutine;
 
     private void Start()
     {
@@ -103,12 +104,12 @@ public class DialogManager : MonoBehaviour
         if(!writing)
         {
             Debug.Log("Will start writing...");
-            StartCoroutine(writeToDialogRoutine);
+            writeCoroutine = StartCoroutine(writeToDialogRoutine);
             finishedWriting = false;
             writing = true;
         }else
         {
-            StopAllCoroutines();
+            StopCoroutine(writeCoroutine);
             showDialog(text);
             finishedWritingCurrentEntry();
         }
