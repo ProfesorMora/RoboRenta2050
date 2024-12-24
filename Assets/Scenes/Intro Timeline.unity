@@ -171,7 +171,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 216147861}
   fadeTime: 5
+  canvasGroupFadeDuration: 5
   dialogManager: {fileID: 1862954164}
+  canvasGroup: {fileID: 319199193}
 --- !u!114 &216147861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +194,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hola
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a3048a1add12d984c9794e166ae8a859, type: 2}
   m_sharedMaterial: {fileID: 4324535852989509328, guid: a3048a1add12d984c9794e166ae8a859, type: 2}
@@ -283,6 +285,7 @@ GameObject:
   - component: {fileID: 319199191}
   - component: {fileID: 319199190}
   - component: {fileID: 319199189}
+  - component: {fileID: 319199193}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -373,6 +376,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &319199193
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319199188}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1225171579
 GameObject:
   m_ObjectHideFlags: 0
