@@ -3169,7 +3169,7 @@ MonoBehaviour:
   arrendabotSorprendido: {fileID: -1990239544057201586, guid: 71b90a4211214fc41a1552985194d13a, type: 3}
   vibrationDuration: 0.25
   vibrationSpeed: 0.01
-  vibrationMagnitude: 1
+  vibrationMagnitude: 0.25
 --- !u!4 &1575188360
 Transform:
   m_ObjectHideFlags: 0
