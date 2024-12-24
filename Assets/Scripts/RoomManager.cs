@@ -24,23 +24,26 @@ public class RoomManager : MonoBehaviour
     public void NextScene()
     {
         Debug.Log("Will load next Scene");
-        if (DialogManager.deactivated)
+        if (GlobalVariables.gActiveClick == true)
         {
-            if(finishing){
-                if(GlobalVariables.price > 4000)
-                    SceneManager.LoadScene("Bad Ending");
-                else
-                    SceneManager.LoadScene("Good Ending");
-            }else{
-                Debug.Log("Will submit form");
-                int newPrice = GlobalVariables.price;
-                priceText.text = newPrice.ToString() + "€";
-                priceCanvas.enabled = true;
-                Debug.Log("global price" + GlobalVariables.price.ToString());
-                finishing = true;
-                //dialogManager.reactivate();
-                //dialogManager.nextEntry();
+            if (DialogManager.deactivated)
+            {
+                if(finishing){
+                    if(GlobalVariables.price > 4000)
+                        SceneManager.LoadScene("Bad Ending");
+                    else
+                        SceneManager.LoadScene("Good Ending");
+                }else{
+                    Debug.Log("Will submit form");
+                    int newPrice = GlobalVariables.price;
+                    priceText.text = newPrice.ToString() + "€";
+                    priceCanvas.enabled = true;
+                    Debug.Log("global price" + GlobalVariables.price.ToString());
+                    finishing = true;
+                    //dialogManager.reactivate();
+                    //dialogManager.nextEntry();
+                }
             }
-        }
+    }
     }
 }
