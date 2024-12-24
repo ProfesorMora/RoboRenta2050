@@ -27,10 +27,10 @@ public class RoomManager : MonoBehaviour
         if (DialogManager.deactivated)
         {
             if(finishing){
-                if(GlobalVariables.price <= 4000)
-                    SceneManager.LoadScene("LastDance1");
+                if(GlobalVariables.price > 4000)
+                    SceneManager.LoadScene("Bad Ending");
                 else
-                    SceneManager.LoadScene("LastDance");
+                    SceneManager.LoadScene("Good Ending");
             }else{
                 Debug.Log("Will submit form");
                 int newPrice = GlobalVariables.price;
