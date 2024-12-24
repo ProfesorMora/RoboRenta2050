@@ -71,3 +71,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 .vsconfig
+Assets/ChakraPetch-Medium SDF.asset
+Assets/Galindo-Regular SDF.asset
+Assets/UniversalRenderPipelineGlobalSettings.asset
