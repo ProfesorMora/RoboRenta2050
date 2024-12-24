@@ -32,11 +32,19 @@ public class DialogManager : MonoBehaviour
     public Sprite arrendabotSorprendido;
 
     public float vibrationDuration, vibrationSpeed, vibrationMagnitude;
-    private Coroutine writeCoroutine;
+    private Coroutine writeCoroutine, angryRobot, angryText;
+    private Vector3 initPosRobot, initPosText, initLocalPosRobot, initLocalPosText;
 
     private void Start()
     {
-        if(robot != null) arrendabot = robot.GetComponent<Image>();
+        if(robot != null){
+            arrendabot = robot.GetComponent<Image>();
+            initLocalPosRobot = robot.transform.localPosition;
+            initPosRobot = robot.transform.position;
+        }
+        if(textBox!= null){
+            initPosText = textBox.transform.localPosition;
+        }
         currentScene = 0;
         currentEntryNumber = 1;
         writing = false;
@@ -85,8 +93,8 @@ public class DialogManager : MonoBehaviour
                         break;
                     case "¬":
                         if(arrendabot != null) arrendabot.overrideSprite = arrendabotEnojado;
-                        if(robot != null) StartCoroutine(angryVibration(robot,vibrationDuration, vibrationSpeed, vibrationMagnitude));
-                        if(textBox != null) StartCoroutine(angryVibration(textBox,vibrationDuration, vibrationSpeed, vibrationMagnitude));
+                        if(robot != null) angryRobot = StartCoroutine(angryVibration(robot,vibrationDuration, vibrationSpeed, vibrationMagnitude));
+                        if(textBox != null) angryText = StartCoroutine(angryVibration(textBox,vibrationDuration, vibrationSpeed, vibrationMagnitude));
                         text = text.Remove(0,1);
                         break;
                     default:
@@ -109,10 +117,22 @@ public class DialogManager : MonoBehaviour
             writing = true;
         }else
         {
-            if(writeCoroutine != null) StopCoroutine(writeCoroutine);
+            if(writeCoroutine != null) StopAllCoroutines();
+            stopAnimations();
             showDialog(text);
             finishedWritingCurrentEntry();
         }
+    }
+
+    void stopAnimations(){
+        if(angryRobot != null) StopCoroutine(angryRobot);
+        if(angryText != null) StopCoroutine(angryText);
+        if(robot!=null){
+            robot.transform.localPosition = initLocalPosRobot;
+            robot.transform.position = initPosRobot;
+        }
+        if(textBox!=null) textBox.transform.localPosition = initPosText;
+        // robot.transform.localPosition.y = 0;
     }
 
     // Escribe la cadena de texto en el diálogo caracter a caracter
@@ -189,7 +209,7 @@ public class DialogManager : MonoBehaviour
             target.transform.position = target.transform.position + new Vector3(despX, despY, 0);
             yield return new WaitForSeconds(speed);
             target.transform.position = target.transform.position - new Vector3(despX, despY, 0);
-            elapsedTime += Time.deltaTime;
+            elapsedTime += speed;
         }
     }
 }
