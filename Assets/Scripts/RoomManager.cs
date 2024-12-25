@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class RoomManager : MonoBehaviour
 {
@@ -8,11 +9,16 @@ public class RoomManager : MonoBehaviour
     bool finishing = false;
     public Canvas priceCanvas;
     public TextMeshProUGUI priceText;
+    public CanvasGroup canvasGroup;
+    public float blackFadeDuration = 1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //DialogManager.deactivate();
         priceCanvas.enabled = false;
+        canvasGroup.alpha = 0;
+        StartCoroutine(fadeCanvasGroup(0, 1, blackFadeDuration));
     }
 
     // Update is called once per frame
@@ -45,5 +51,17 @@ public class RoomManager : MonoBehaviour
                 }
             }
     }
+    }
+
+    private IEnumerator fadeCanvasGroup(float begin, float end, float duration)
+    {
+        float elapsedTime = 0.0f;
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            canvasGroup.alpha = begin + (elapsedTime / duration)*(end - begin);
+            yield return null;
+        }
+        canvasGroup.alpha = end;
     }
 }

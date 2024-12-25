@@ -104,7 +104,8 @@ public class formScript : MonoBehaviour
             formSubmitted = true;
             Debug.Log("global price" + GlobalVariables.price.ToString());
         }else{
-            if(finishedTalking) changeScene();
+            if(finishedTalking)
+                StartCoroutine(fadeCanvasGroup(1,0,blackFadeDuration,false));
             else{
                 priceCanvas.enabled = false;
                 dialogManager.reactivate();
@@ -157,7 +158,7 @@ public class formScript : MonoBehaviour
     }
 
 
-    private IEnumerator fadeCanvasGroup(float begin, float end, float duration)
+    private IEnumerator fadeCanvasGroup(float begin, float end, float duration, bool starting = true)
     {
         float elapsedTime = 0.0f;
         while (elapsedTime < duration)
@@ -167,7 +168,10 @@ public class formScript : MonoBehaviour
             yield return null;
         }
         canvasGroup.alpha = end;
-        StartCoroutine(fadeGraphicElements(begin, end, appearFadeDuration));
+        if(starting)
+            StartCoroutine(fadeGraphicElements(begin, end, appearFadeDuration));
+        else
+            changeScene();
     }
 
 
